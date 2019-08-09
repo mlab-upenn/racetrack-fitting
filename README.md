@@ -17,32 +17,32 @@ occupied_thresh: 0.65
 free_thresh: 0.196
 ```
 ## Usage
-Clone the repository and run the center-line-fitting script:
+Clone the repository and run the racetrack-fitting script:
 ```
-git clone https://github.com/mlab-upenn/center-line-fitting.git
-cd center-line-fitting
-python src/fit_centerline.py
+git clone https://github.com/mlab-upenn/racetrack-fitting.git
+cd racetrack-fitting
+python src/fit_racetrack.py
 ```
 
 ### Plots
 To control the plots that are displayed, use
 ```
-python center-line-fitting.py --plot_mode <0, 1, or 2>
+python fit_racetrack.py --plot_mode <0, 1, or 2>
 ```
 0 shows no plots, 1 (default) shows basic plots, and 2 shows all plots
 
 ### I/O
 You can specify the input file paths and output directory using the command line:
 ```
-python center-line-fitting.py --pgm_path <path to track image> --yaml_path <path to track info> --out_dir <path to output directory>
+python fit_racetrack.py --pgm_path <path to track image> --yaml_path <path to track info> --out_dir <path to output directory>
 ```
 
 ### Subsampling Period
 You can change the subsampling period as follows:
 ```
-python center-line-fitting.py --subsample_period 20
+python fit_racetrack.py --subsample_period 20
 ```
-This changes how sparesly the points are sampled from the center-line path
+This changes how sparesly the points are sampled from the centerline and wall paths
 ##### subsample_period = 6
 ![Subsampled6](https://user-images.githubusercontent.com/8052622/62798875-5930f500-baad-11e9-9c9b-fa2d5834daed.png)
 ##### subsample_period = 20
