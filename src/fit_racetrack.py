@@ -203,9 +203,6 @@ def prune(image, plot_mode):
     
     g.findCycle()
 
-    if plot_mode < 2:
-        return image, g.cycle
-
     image = np.zeros((height, width))
     for i, (x, y) in enumerate(g.cycle):
         image[y, x] = i / len(g.cycle) * (155) + 100
@@ -313,7 +310,7 @@ if __name__=='__main__':
                 hsv = (0, 1, (1 - abs(pixel) / max_absolute_distance)**8)
             else:
                 hsv = (0.5, 1, (1 - abs(pixel) / max_absolute_distance)**8)
-            if track_walls[y][x] == 1.0 or image[y][x]:
+            if track_walls[y][x] == 1.0 or image[y][x] > 0.0:
                 hsv = (1.0, 0.0, 1.0)
             newrow.append(hsv_to_rgb(hsv))
         results_pixels.append(newrow)
